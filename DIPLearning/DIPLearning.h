@@ -2,13 +2,14 @@
 
 #include "MyImgLoader.h"
 #include "GeomResize.h"
+#include "RasterResize.h"
 
 namespace dip {
 
-	class DIPLearning : public MyImgLoader, public GeomResize
+	class DIPLearning : public load::MyImgLoader, public gRes::GeomResize, public rRes::RasterResize
 	{
 
-		class dip::MyImgLoader* MyImgL = new dip::MyImgLoader;
+		class load::MyImgLoader* MyImgL = new load::MyImgLoader;
 
 	public:
 		DIPLearning();

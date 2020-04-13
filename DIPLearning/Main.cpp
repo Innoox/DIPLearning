@@ -6,33 +6,26 @@ int main(int argc, char** argv)
 	dip::DIPLearning* MyMonoProccessing = new dip::DIPLearning;
 	dip::DIPLearning* MyColorProcessing = new dip::DIPLearning;
 
-	MyMonoProccessing->imgResize(&MyMonoProccessing->getMonoImgs());
+	// Geometrical image resizing
+	MyMonoProccessing->imgGeomResize(&MyMonoProccessing->getMonoImgs());
+	MyColorProcessing->imgGeomResize(&MyColorProcessing->getColorImgs());
 
-	MyMonoProccessing->myShowImgs(&MyMonoProccessing->getResizedImages());
+	// Raster image resize
+	MyMonoProccessing->imgRastResize(&MyMonoProccessing->getMonoImgs());
+	MyColorProcessing->imgRastResize(&MyColorProcessing->getColorImgs());
 
-	// Uncomment to show current images
-	//MyMonoProccessing->myShowImgs(&MyMonoProccessing->getMonoImgs());
-	//MyColorProcessing->myShowImgs(&MyColorProcessing->getColorImgs());
+	// Uncoment to Show Result
+	MyMonoProccessing->myShowImgs(&MyMonoProccessing->getGeomResizedImages());
+	MyColorProcessing->myShowImgs(&MyColorProcessing->getGeomResizedImages());
+	MyMonoProccessing->myShowImgs(&MyMonoProccessing->getRastResizedImages());
+	MyColorProcessing->myShowImgs(&MyColorProcessing->getRastResizedImages());
 
-	// Have to be changed to run Aim img resize
-	//MyMonoProccessing->setImgs(&MyMonoProccessing->getMonoImgs());
-	//MyColorProcessing->setImgs(&MyColorProcessing->getColorImgs());
-
-	// Uncoment to check largest img size
-	//std::cout << "The largest Mono img size is: " 
-	//	<< MyMonoProccessing->getImgWidth()
-	//	<< " x " 
-	//	<< MyMonoProccessing->getImgHeight()
-	//	<< "\nThe largest Color img size is: "
-	//	<< MyColorProcessing->getImgWidth()
-	//	<< " x " 
-	//	<< MyColorProcessing->getImgHeight()
-	//	<< std::endl;
 
 	cv::waitKey(0);
 
 	MyMonoProccessing = nullptr;
-	delete MyMonoProccessing;
+	MyColorProcessing = nullptr;
+	delete MyMonoProccessing, MyColorProcessing;
 
 	return 0;
 }

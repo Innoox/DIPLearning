@@ -1,13 +1,14 @@
 #include "MyImgLoader.h"
-#include "iostream"
+
+#include <iostream>
 #include <vector>
 
-namespace dip {
+namespace load {
 
-	dip::MyImgLoader::MyImgLoader()
+	load::MyImgLoader::MyImgLoader()
 	{
-		this->__ColorImgPath = "../../imgSource/Color/*.BMP";
-		this->__MonoImgPath = "../../imgSource/MonoChrome/*.BMP";
+		this->__ColorImgPath = "../imgSource/Color/*.BMP";
+		this->__MonoImgPath = "../imgSource/MonoChrome/*.BMP";
 		__LoadImgs();
 	}
 

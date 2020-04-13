@@ -6,11 +6,10 @@
 
 #include <map>
 
-namespace dip {
+namespace load {
 
 	class MyImgLoader
 	{
-
 	public:
 
 		MyImgLoader();

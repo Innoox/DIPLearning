@@ -6,7 +6,7 @@
 
 #include <map>
 
-namespace dip {
+namespace gRes {
 	class GeomResize
 	{
 	public:
@@ -16,8 +16,8 @@ namespace dip {
 		int getImgHeight();
 		int getImgWidth();
 
-		void imgResize(std::map<std::string, cv::Mat>* tmpImg);
-		std::map<std::string, cv::Mat> getResizedImages();
+		void imgGeomResize(std::map<std::string, cv::Mat>* tmpImg);
+		std::map<std::string, cv::Mat> getGeomResizedImages();
 
 	private:
 		void __setImgs(std::map<std::string, cv::Mat>* tmpImgs);
@@ -26,8 +26,8 @@ namespace dip {
 	private:
 		int __Width;
 		int __Height;
-		cv::Size mySize;
+		cv::Size __mySize;
 
 		std::map<std::string, cv::Mat> __aimImgs;
 	};
-} // dip namespace end
+} // gRes namespace end
